@@ -35,7 +35,7 @@
 
 //?doc=F14PS00849&agency=DOI
 
-$url = "https://www.fedconnect.net/fedconnect/?doc=F14PS00849&agency=DOI";
+$url = "";
 
 $page_source=file_get_contents($url);
 
