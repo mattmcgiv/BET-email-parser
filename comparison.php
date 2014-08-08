@@ -1,3 +1,5 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 <?php
 	$locations = array (
 		0 => "New York",
@@ -24,34 +26,24 @@
 		21 => "Y1NA"
 	);
 
-//Get all notifications
-//For each notifcation
-	//For each key in $locations
-	//Look for matching value
-	//If match, add this notification's URL and matched value (e.g. "D.C." to stack
-	//If no match, continue
-//If there are matches,
-	//email URL, matched values as a list to matt@antym.com
-
 //?doc=F14PS00849&agency=DOI
 
 $url = "";
 
 $page_source=file_get_contents($url);
-
-//For each key in $locations
-$count = 0;
-
-foreach ($locations as $location) {
-	if (strpos($page_source, $location)) {
-	    echo "Found " . $location . " in " . $url . ". <br>";
-	    $count++;
-	    echo "Count is: " . $count . ". <br>";
-	}
-	else {
-		echo "Not found. <br>";
-	}
-}
 ?>
+
+<div id="dom-target" style="display: none;">
+    <?php 
+        echo htmlspecialchars($page_source);
+    ?>
+</div>
+
+<script type="text/javascript">
+	var div = document.getElementById("dom-target");
+	$(document).ready(function(){
+		console.log($( "p:contains('237310-Highway')" ));
+	});
+</script>
 
 
